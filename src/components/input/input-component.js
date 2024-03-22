@@ -87,13 +87,11 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
 
         this.shadowRoot.appendChild(this.labelC)
         this.shadowRoot.appendChild(this.inputC)
-
         this.render()
-        
     }
 }
 
-customElements.define("my-input",inputComponent)//cambiar el nombre a input
+customElements.define("input-component",inputComponent)//cambiar el nombre a input
 //input-component
 
 

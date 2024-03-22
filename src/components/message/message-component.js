@@ -1,4 +1,4 @@
-class message extends HTMLElement{
+class messageComponent extends HTMLElement{
     //constructor
     constructor(){
         super()
@@ -58,4 +58,4 @@ class message extends HTMLElement{
     this.h1.setAttribute("hidden",true)
     }
 }
-customElements.define("my-message",message) //message-componet
+customElements.define("message-componet",messageComponent) //message-componet

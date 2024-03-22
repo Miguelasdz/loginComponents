@@ -10,7 +10,7 @@ const expresiones = {
 }
 
 function obtenerElementos(id){
-    const lightComponent = document.querySelectorAll('my-input')
+    const lightComponent = document.querySelectorAll('input-component')
     let i=0;
     let valores=[]
     let tipos=[]
@@ -53,73 +53,26 @@ function asignarError(arreglo, errorM){
       });
 
     if(resultados.includes(0)){
-    console.log(mensaje)
-    document.querySelector("my-message").setAttribute('estado', "mal")
-    document.querySelector("my-message").setAttribute('mensaje', mensaje)
+    document.querySelector("message-componet").setAttribute('estado', "mal")
+    document.querySelector("message-componet").setAttribute('mensaje', mensaje)
    
     }else{
-    document.querySelector("my-message").setAttribute('estado', "bien")
-    solicitud(valor)
+    document.querySelector("message-componet").setAttribute('estado', "bien")
      //se hace el fetch para el login
     }
     
 }
 
-function solicitud(valor){
-    const url = "https://reqres.in/api/register";
-      
-
-      const payload = {
-        "email": valor[0] + "@gmail.com",
-        "password": valor[1]
-      };
-
-      console.log(payload);
-      const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-    };
-    fetch(url, options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error');
-            }
-            return response.json();
-        })
-        .then(data => {
-          
-
-            setTimeout(() => {
-                alert("Guardado exitosamente");
-                
-            }, 1000);
-            //console.log(data);
-        })
-        .catch(error => {
-            console.log(payload)
-            console.error('Error:', error);
-        });
-        
-}
-
 function validar(){
-    let res = obtenerElementos(["usuario","pass"]) //result, 
-    asignarError(res,["usuario","contraseña"]) //corregir y pasar objertos literales
+    let res = obtenerElementos(["usuario","pass"]) 
+    asignarError(res,["usuario","contraseña"]) 
 }
 
 function evaluar (tipo, valor, errorM) {
     if(obtenerExpresion(tipo , valor )){
-        //console.log("pasa 1")
-        //document.querySelector("my-message").setAttribute('estado', "bien")
         return 1
     }else{
-        //console.log("pasa 0")
-        //document.querySelector("my-message").setAttribute('estado', `mal`)
         console.log("error en " + errorM)
-        //document.querySelector("my-message").setAttribute('error', `error-${errorM}`)
         return 0
     }
 }
@@ -144,20 +97,10 @@ function obtenerExpresion(tipoInput, valor) {
       ];
       
     if(tipos.includes(tipoInput)){
-        
-        //console.log(expresiones[tipoInput])
-        //console.log(expresiones[tipoInput].test(valor))
         boleano=expresiones[tipoInput].test(valor)
     }
     else{
-        //no esta escrito las funciones
         console.log("revisa el tipo de input ")
-        
     }
-
-    
     return boleano
-    // expresiones[expresion.test("default")]
-
-    
 }

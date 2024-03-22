@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Componentes</title>
 </head>
 <body>
@@ -21,21 +21,21 @@
           </header>
           <!--cuando sean mas de 5 atributos hacer el espaciado de linea-->
           <div id="input" class=" grid place-items-center py-2.5 px-24">  <!--Cambiar el id a content (refactorizar)-->
-            <my-input 
+            <input-component 
             data-label="Usuario"  
             value="20" 
             placeholder="a" 
             type="text" 
             id="usuario" 
             diseno="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
-            </my-input>
-            <my-input 
+            </input-component>
+            <input-component 
             data-label="Contraseña"  
             value="89" 
             placeholder="a" 
             type="password" 
             id="pass">
-            </my-input>
+            </input-component>
             <a href="#" class="font-semibold text-indigo-600" >Recuperar contraseña</a><!--crear componente-->
             <!--crear componente boton-->
             <button 
@@ -44,14 +44,13 @@
             <p class="block text-sm font-semibold leading-6 text-white">
               <strong class="text-sm leading-6 text-gray-600">¿No tienes cuenta?</strong> Solicita al administrador que habilite la cuenta
             </p><!--la etiqueta p no se hace componente los h1 titulos y subtitulos pueden ser un componente-->
-            <my-message></my-message>
+            <message-componet></message-component>
           </div>
-
         </article>
     </section>
 </main>
 </body>
-<script type ="module" src="./input_c.js"></script>
-<script type ="module" src="./message.js"></script>
-<script src="./funcion.js"></script>
+<script type ="module" src="./components/input/input-component.js"></script>
+<script type ="module" src="./components/message/message-component.js"></script>
+<script src="./funtion.js"></script>
 </html>
