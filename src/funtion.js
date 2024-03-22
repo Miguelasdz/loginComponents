@@ -53,11 +53,11 @@ function asignarError(arreglo, errorM){
       });
 
     if(resultados.includes(0)){
-    document.querySelector("message-componet").setAttribute('estado', "mal")
-    document.querySelector("message-componet").setAttribute('mensaje', mensaje)
+    document.querySelector("message-component").setAttribute('estado', "mal")
+    document.querySelector("message-component").setAttribute('mensaje', mensaje)
    
     }else{
-    document.querySelector("message-componet").setAttribute('estado', "bien")
+    document.querySelector("message-component").setAttribute('estado', "bien")
      //se hace el fetch para el login
     }
     

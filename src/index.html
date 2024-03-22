@@ -38,13 +38,13 @@
             </input-component>
             <a href="#" class="font-semibold text-indigo-600" >Recuperar contraseña</a><!--crear componente-->
             <!--crear componente boton-->
-            <button 
-            onclick="validar()" 
-            class="block w-80 rounded-md bg-red-600 px-11 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2  focus-visible:outline-indigo-600">Ingresar</button>
+            <button-component labelButton="Ingresar" actionButton="validar()" color="#999999"></button-component>
+            <br>
+            
             <p class="block text-sm font-semibold leading-6 text-white">
               <strong class="text-sm leading-6 text-gray-600">¿No tienes cuenta?</strong> Solicita al administrador que habilite la cuenta
             </p><!--la etiqueta p no se hace componente los h1 titulos y subtitulos pueden ser un componente-->
-            <message-componet></message-component>
+            <message-component></message-component>
           </div>
         </article>
     </section>
@@ -52,5 +52,6 @@
 </body>
 <script type ="module" src="./components/input/input-component.js"></script>
 <script type ="module" src="./components/message/message-component.js"></script>
+<script type="module" src="./components/button/button-components.js"></script>
 <script src="./funtion.js"></script>
 </html>

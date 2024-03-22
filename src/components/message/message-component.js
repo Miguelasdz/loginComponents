@@ -52,10 +52,10 @@ class messageComponent extends HTMLElement{
         this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
     }
     connectedCallback(){
+    this.render()
     this.h1.textContent=""
     this.shadowRoot.appendChild(this.h1)
-    this.h1.setAttribute("style","color: white")
     this.h1.setAttribute("hidden",true)
     }
 }
-customElements.define("message-componet",messageComponent) //message-componet
+customElements.define("message-component",messageComponent) //message-componet

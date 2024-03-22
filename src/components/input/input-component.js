@@ -3,7 +3,7 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
     constructor(){
         super() //investigar super
         this.attachShadow({mode: "open"})
-        this.inputC=document.createElement("input")
+        this.inputC=document.createElement("input")//no se puede llamar inputComponent por que mi clase se llama input component
         this.labelC=document.createElement("label")
     }
 
@@ -42,26 +42,10 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
 
     static get observedAttributes(){
         return ["estado"]
-        
-    }
-    cambiartexto(newValue){
-        this.message=document.createElement("h1")
-        this.shadowRoot.appendChild(this.message)
-        
-        if(newValue===1){
-            this.labelC.textContent="Todo bien"
-        }else{
-            
-            this.labelC.textContent="Tienes un error al ingresar datos en usuario"
-        }
-        
-        
     }
 
     attributeChangedCallback(name, oldValues,newValue){
-        console("lee estos")
-        //this.cambiartexto(newValue)
-        
+    //va la validacion nueva
     }
 
 
@@ -70,28 +54,26 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
     }
     connectedCallback(){
 //getters     
-        let labelP= this.getAttribute("data-label")
+        let dataLabel= this.getAttribute("data-label")
         let placeholder=this.getAttribute("placeholder")
         let type = this.getAttribute("type")
         let value = this.getAttribute("value")
-        let diseno= this.getAttribute("diseno")
         let id= this.getAttribute("id")
 //setters
         this.inputC.setAttribute("id",id)
         this.inputC.setAttribute("placeholder", placeholder)
         this.inputC.setAttribute("type",type)
         this.inputC.setAttribute("value", value)
-        this.inputC.setAttribute("class",diseno)
-        
-        this.labelC.textContent=labelP
-
+//asigna el texto al label del input        
+        this.labelC.textContent=dataLabel
+//se crean los elementos hijos para visualizarce en la pantalla
         this.shadowRoot.appendChild(this.labelC)
         this.shadowRoot.appendChild(this.inputC)
         this.render()
     }
 }
 
-customElements.define("input-component",inputComponent)//cambiar el nombre a input
+customElements.define("input-component",inputComponent)
 //input-component
 
 
