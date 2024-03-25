@@ -11,7 +11,8 @@ class titleComponent extends HTMLElement{
         template.innerHTML=
         `<style>
         
-        h1{
+       
+        .d1{
             color:white;
         }
         
@@ -37,14 +38,12 @@ class titleComponent extends HTMLElement{
 
     connectedCallback(){
     //getters     
-        let dataLabel= this.getAttribute("dataLabel")
         let typeTitle= this.getAttribute("typeTitle")
-        this.divTitle.innerHTML=  this.getAttribute("data-label") 
+        let classComponent= this.getAttribute("class")
         //en caso de importar que este mal el tipo de input
         this.divTitle.innerHTML= `<h${typeTitle}
-        class="d1"
-        >${dataLabel}</h${typeTitle}>`
-            
+        class=${classComponent}
+        ><slot></slot></h${typeTitle}>`
             this.render()
         }
         

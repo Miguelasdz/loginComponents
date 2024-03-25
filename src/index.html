@@ -17,25 +17,25 @@
             id="logo" 
             src="https://imgs.search.brave.com/hHq_wfbKQzICI0nOJySLRUj3djJqNCYsjx57eCCktb8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4y/LnVucmVhbGVuZ2lu/ZS5jb20vdWUtbG9n/by1zdGFja2VkLXVu/cmVhbC1lbmdpbmUt/dy02Nzd4NTQ1LWZh/YzExZGUwOTQzZi5w/bmc"  
             alt="Logo de la empresa">
-            <title-component dataLabel="holña" typeTitle="3"></title-component>
-            <h1 class="text-3xl font-bold tracking-tight text-white sm:text-xl">Inicia sesión</h1> <!--componente-->
+            <title-component typeTitle="2" class="d1">Iniciar sesion</title-component>
           </header>
           <!--cuando sean mas de 5 atributos hacer el espaciado de linea-->
-          <div id="input" class=" grid place-items-center py-2.5 px-24">  <!--Cambiar el id a content (refactorizar)-->
+          <div id="content" class=" grid place-items-center py-2.5 px-24">  <!--Cambiar el id a content (refactorizar)-->
             <input-component 
             data-label="Usuario"  
             value="20" 
             placeholder="a" 
+            message="m1"
             type="text" 
-            id="usuario" 
-            diseno="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            id="user">
             </input-component>
             <input-component 
             data-label="Contraseña"  
             value="89" 
-            placeholder="a" 
+            placeholder="a"
+            message="m2" 
             type="password" 
-            id="pass">
+            id="password">
             </input-component>
             <a href="#" class="font-semibold text-indigo-600" >Recuperar contraseña</a><!--crear componente-->
             <!--crear componente boton-->
