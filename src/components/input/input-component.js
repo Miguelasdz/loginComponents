@@ -3,10 +3,12 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
     constructor(){
         super() //investigar super
         this.attachShadow({mode: "open"})
-        this.div
+        this.divContent=document.createElement("div")
+        this.divHeader=document.createElement("div")
         this.inputC=document.createElement("input")//no se puede llamar inputComponent por que mi clase se llama input component
         this.labelC=document.createElement("label")
         this.message=document.createElement("p")
+        this.buttonC=document.createElement("button")
     }
 
     //estilos
@@ -14,34 +16,65 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
         const template=document.createElement("template")
         template.innerHTML=
         `<style>
-      
-        .message{
-            grid-area: message;
-            color:#cb1919;
+        .divHeader{            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
         }
         .labelComponent{
-            grid-area: labelComponent;
-            text-align:center;
-            align-items:center;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.25rem;
             color: rgb(255 255 255);
             padding-bottom: 10%;
         }
-        .inputComponent{
-            grid-area: input;
-            margin: 0;
-            display:block;
-            border: 2px solid transparent;
-            width: 19rem;
-            height: 3.5vh;
-            padding-left: 0.8em;
-            outline: none;
-            overflow: hidden;
-            background-color: #F3F3F3;
-            border-radius: 10px;
-            transition: all 0.5s;
+        .message{
+           
+            color:#cb1919;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            padding-bottom: 10%;
         }
+        .content{
+            
+        }
+        
+        
+        .inputComponent{
+            
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #f4f2f2;
+            border: none;
+            color: #646464;
+            padding: 0.7rem 1rem;
+            border-radius: 30px;
+            width: 12em;
+            transition: all ease-in-out .5s;
+            margin-right: -2rem;
+              
+        }
+        .inputComponent:hover, .inputComponent:focus {
+            box-shadow: 0 0 1em #00000013;
+          }
+          
+          .inputComponent:focus {
+            outline: none;
+            background-color: #f0eeee;
+          }
+          .buttonComponent {
+            background: none; /* Fondo transparente del botón */
+            border: none; /* Eliminar borde del botón */
+            cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+          }
+          
+          .buttonIcon{
+            background: none;
+            height: 1.3em;
+            width: 1.3em;            
+          }
+          
+          
 
         </style>`
         return template
@@ -50,8 +83,9 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
     static get observedAttributes(){
         return ["state"]
     }
-
-
+    hi(){
+        console.log("hola")
+    }
     validate (type, value) {
         const typeComponent = {
            text:{
@@ -104,13 +138,54 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
         this.inputC.setAttribute("class", "inputComponent")
         this.labelC.setAttribute("class", "labelComponent")
         this.message.setAttribute("class", "message")
+        this.buttonC.setAttribute("class", "buttonComponent")
+        this.divContent.setAttribute("class","content")
+        this.divHeader.setAttribute("class","divHeader")
+        
+        
 //asigna el texto al label del input        
         this.labelC.textContent=dataLabel
         this.message.setAttribute("hidden", true)
+        this.buttonC.setAttribute("hidden", true)
+        this.buttonC.innerHTML=`<button class="buttonComponent"> <img class="buttonIcon" src="./assets/icons/password.png" alt="ver" width="24" height="24">
+        
+    </button>`
+        
+//verifica que es un tipo password para mostrar el boton
+        if(type=="password"){
+            this.buttonC.removeAttribute("hidden",false)
+        }
+//funcion de boton el cual cambia a hidden o no hidden
+        this.buttonC.addEventListener('click', () => {
+            console.log(type)
+            if(type=="password"){
+                const lightComponent = document.querySelectorAll('input-component')
+                this.inputC.setAttribute("type","text")
+                type="text"
+                this.buttonC.innerHTML=`<button class="buttonComponent"> <img class="buttonIcon" src="./assets/icons/password.png" alt="ocultar" width="24" height="24">
+        
+    </button>`
+            }
+            else{
+                console.log("pas")
+                this.inputC.setAttribute("type","password")
+                type="password"
+                this.buttonC.innerHTML=`<button class="buttonComponent"> <img class="buttonIcon" src="./assets/icons/text.png" alt="ver" width="24" height="24">
+        
+    </button>`
+            }
+        });
 //se crean los elementos hijos para visualizarce en la pantalla
-        this.shadowRoot.appendChild(this.labelC)
-        this.shadowRoot.appendChild(this.inputC)
-        this.shadowRoot.appendChild(this.message)
+        
+        
+        this.shadowRoot.appendChild(this.divHeader)
+        this.shadowRoot.appendChild(this.divContent)
+        this.divHeader.appendChild(this.labelC)
+        this.divHeader.appendChild(this.message)
+        this.divContent.appendChild(this.inputC)
+        this.divContent.appendChild(this.buttonC)
+        
+        
         //this.message.removeAttribute("hidden",false)
         this.render()
     }
