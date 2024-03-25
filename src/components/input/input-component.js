@@ -51,6 +51,7 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
         return ["state"]
     }
 
+
     validate (type, value) {
         const typeComponent = {
            text:{
@@ -84,7 +85,6 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
         let values = JSON.parse(newValue);
         this.validate(values.type,values.value)
     }
-
     render(){
         this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
     }
@@ -103,13 +103,12 @@ class inputComponent extends HTMLElement{ //cambiar el nombre del titulo inputCo
         this.inputC.setAttribute("value", value)
         this.inputC.setAttribute("class", "inputComponent")
         this.labelC.setAttribute("class", "labelComponent")
-        this.message.setAttribute("class", "message") 
+        this.message.setAttribute("class", "message")
 //asigna el texto al label del input        
-        this.labelC.textContent=""
+        this.labelC.textContent=dataLabel
         this.message.setAttribute("hidden", true)
 //se crean los elementos hijos para visualizarce en la pantalla
         this.shadowRoot.appendChild(this.labelC)
-        this.shadowRoot.appendChild(this.message)
         this.shadowRoot.appendChild(this.inputC)
         this.shadowRoot.appendChild(this.message)
         //this.message.removeAttribute("hidden",false)
