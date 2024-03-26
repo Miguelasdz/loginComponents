@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Componentes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>loginComponent</title>
 </head>
 <body>
 <main>
-    <section  class="grid h-screen place-items-center">
-        <article>
-            
-          <header class="grid place-items-center py-2.5 px-3.5">
-            <img 
-            id="logo" 
-            src="https://imgs.search.brave.com/hHq_wfbKQzICI0nOJySLRUj3djJqNCYsjx57eCCktb8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4y/LnVucmVhbGVuZ2lu/ZS5jb20vdWUtbG9n/by1zdGFja2VkLXVu/cmVhbC1lbmdpbmUt/dy02Nzd4NTQ1LWZh/YzExZGUwOTQzZi5w/bmc"  
-            alt="Logo de la empresa">
-            
-            <title-component typeTitle="2" class="d1">Iniciar sesion</title-component>
-          </header>
-          <!--cuando sean mas de 5 atributos hacer el espaciado de linea-->
-          <div id="content" class=" grid place-items-center py-2.5 px-24">  <!--Cambiar el id a content (refactorizar)-->
-            <input-component 
-            data-label="Usuario"  
-            value="20" 
-            placeholder="a" 
-            message="m1"
-            type="text" 
-            id="user">
-            </input-component>
-            <br>
-            <input-component 
-            data-label="Contraseña"  
-            value="89" 
-            placeholder="a"
-            message="m2" 
-            type="password" 
-            id="password">
-            </input-component>
-            <a href="#" class="font-semibold text-indigo-600" >Recuperar contraseña</a><!--crear componente-->
-            <!--crear componente boton-->
-            <button-component labelButton="Ingresar" actionButton="validar()" color="#999999"></button-component>
-            <br>
-            
-            <p class="block text-sm font-semibold leading-6 text-white">
-              <strong class="text-sm leading-6 text-gray-600">¿No tienes cuenta?</strong> Solicita al administrador que habilite la cuenta
-            </p><!--la etiqueta p no se hace componente los h1 titulos y subtitulos pueden ser un componente-->
-          </div>
-        </article>
-    </section>
+  <section  class="grid h-screen place-items-center">
+    <article>
+      <header class="grid place-items-center py-2.5 px-3.5">
+        <img 
+        id="logo" 
+        src="https://imgs.search.brave.com/hHq_wfbKQzICI0nOJySLRUj3djJqNCYsjx57eCCktb8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4y/LnVucmVhbGVuZ2lu/ZS5jb20vdWUtbG9n/by1zdGFja2VkLXVu/cmVhbC1lbmdpbmUt/dy02Nzd4NTQ1LWZh/YzExZGUwOTQzZi5w/bmc"  
+        alt="Logo de la empresa">
+        <title-component typeTitle="2" class="d1">Iniciar sesion</title-component>
+      </header>
+      <!--cuando sean mas de 5 atributos hacer el espaciado de linea-->
+      <div id="content" class=" grid place-items-center py-2.5 px-24">  <!--Cambiar el id a content (refactorizar)-->
+        <input-component 
+        data-label="Usuario"  
+        value="20" 
+        placeholder="a" 
+        message="m1"
+        type="text" 
+        id="user">
+        </input-component>
+        <br>
+        <input-component 
+        data-label="Contraseña"  
+        value="89" 
+        placeholder="a"
+        message="m2" 
+        type="password" 
+        id="password">
+        </input-component>
+        <a href="#" class="font-semibold text-indigo-600" >Recuperar contraseña</a><!--crear componente-->
+        <!--crear componente boton-->
+        <button-component labelButton="Ingresar" actionButton="validate()" color="#999999"></button-component>
+        <br>
+        <p class="block text-sm font-semibold leading-6 text-white">
+          <strong class="text-sm leading-6 text-gray-600">¿No tienes cuenta?</strong> Solicita al administrador que habilite la cuenta
+        </p><!--la etiqueta p no se hace componente los h1 titulos y subtitulos pueden ser un componente-->
+      </div>
+    </article>
+  </section>
 </main>
 </body>
 <script type ="module" src="./components/input/input-component.js"></script>
